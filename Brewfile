@@ -1,5 +1,4 @@
 tap "drewkhoury/tap"
-tap "homebrew/bundle"
 tap "oven-sh/bun"
 tap "supabase/tap"
 tap "warrensbox/tap"
