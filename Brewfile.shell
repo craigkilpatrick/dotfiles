@@ -1,0 +1,9 @@
+# Minimal dependencies for the shell config in .zshrc / .zprofile.
+# This is what ./install.sh installs by default.
+#
+# Note: zsh-syntax-highlighting is deliberately absent — oh-my-zsh now
+# bundles it, and .zshrc loads it via the plugins array.
+
+brew "zsh"
+brew "pure" # prompt — https://github.com/sindresorhus/pure
+brew "nvm"  # sourced by .zshrc

@@ -132,7 +132,6 @@ export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 export DOCKER_BUILDKIT=1
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Claude Code wrapper: show AI Fluency Kanban board when starting in the ai-fluency repo
 claude() {
