@@ -26,10 +26,11 @@ brew "kubernetes-cli"
 brew "pango"
 brew "librsvg"
 brew "mkdocs"
+# node: pulled in as a vercel-cli dependency, not for direct use. nvm owns
+# the node used in shells (see .zshrc). Do not remove — vercel-cli needs it.
 brew "node"
-brew "node@22"
 brew "nushell"
-brew "nvm"
+brew "nvm" # source of truth for node versions; set a default with `nvm alias default <ver>`
 brew "openjdk@11"
 brew "openjdk@17"
 brew "pipx"
