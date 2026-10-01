@@ -86,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/Users/craigkilpatrick/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -122,14 +122,22 @@ alias fixslack='sudo chown -R $(whoami):staff /Applications/Slack.app'
 [ -f ~/.zshrc.secrets ] && source ~/.zshrc.secrets
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+(( $+commands[ng] )) && source <(ng completion script)
 
 # Created by `pipx` on 2024-04-18 21:36:38
-export PATH="$PATH:/Users/craigkilpatrick/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Added by Windsurf
-export PATH="/Users/craigkilpatrick/.codeium/windsurf/bin:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 export DOCKER_BUILDKIT=1
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Claude Code wrapper: show AI Fluency Kanban board when starting in the ai-fluency repo
+claude() {
+  if [[ "$PWD" == *"/ai-fluency"* ]] && [[ -f ".claude/hooks/session-start-kanban.py" ]]; then
+    python3 .claude/hooks/session-start-kanban.py
+  fi
+  command claude "$@"
+}

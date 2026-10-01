@@ -27,9 +27,6 @@ echo "  linked .zshrc"
 ln -sf "$DOTFILES/.zprofile" ~/.zprofile
 echo "  linked .zprofile"
 
-ln -sf "$DOTFILES/.p10k.zsh" ~/.p10k.zsh
-echo "  linked .p10k.zsh"
-
 mkdir -p ~/.config/ghostty
 if [ -f "$DOTFILES/.config/ghostty/config" ]; then
   ln -sf "$DOTFILES/.config/ghostty/config" ~/.config/ghostty/config
@@ -40,4 +37,5 @@ fi
 
 echo ""
 echo "Done. Open a new terminal session to apply changes."
-echo "Note: create ~/.zshrc.secrets with your API tokens before starting a new shell."
+echo "Note: copy .zshrc.secrets.example to ~/.zshrc.secrets and fill in your tokens"
+echo "      before starting a new shell."
